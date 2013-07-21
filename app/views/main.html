@@ -1,5 +1,12 @@
-<ul>
+<ul class="nav">
   <li ng-repeat="item in items">
-    {{ item.name }}
+    <div class="well">
+      <img ng-src="{{ item.image }}" width="128" height="128">
+      <h3>{{ item.name }}</h3>
+      <div class="alert alert-success">
+        <strong>{{ item.price | currency }}</strong>
+      </div>
+      <button class="btn btn-success">Buy!</button>
+    </div>
   </li>
 </ul>

@@ -27,3 +27,16 @@ body {
     line-height: 1;
     letter-spacing: -1px;
 }
+
+.nav {
+    list-style-type: none;
+    text-align: center;
+    > li {
+        display: inline-block;
+        text-align: center;
+        width: 25%;
+    }
+    .well {
+        margin: 0 10px;
+    }
+}
