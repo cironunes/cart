@@ -1,0 +1,10 @@
+- Eu como usuário quero ver os produtos disponíveis para escolher qual vou comprar
+  a) Os produtos devem ser mostrados na ordem de cadastro
+
+- Eu como usuário quero colocar produtos no carrinho
+  a) O valor total da compra deve ser atualizado assim que o produto for inserido no carrinho
+
+- Eu como usuário quero remover produtos do carrinho
+  a) O valor total da compra deve ser atualizado assim que o produto for inserido no carrinho
+
+- Eu como usuário quero finalizar meu pedido
