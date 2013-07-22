@@ -38,32 +38,6 @@ describe('Controller: MainCtrl', function () {
     expect(scope.items.length).toBe(2);
   });
 
-  describe('MultiItemLoader', function() {
-    var mockBackend,
-      loader;
-    beforeEach(inject(function(_$httpBackend_, MultiItemLoader) {
-      loader = MultiItemLoader;
-      mockBackend = _$httpBackend_;
-    }));
-
-    it('should load a list of items', function() {
-      var items, promise;
-
-      mockBackend.expectGET(apiURL).respond(response);
-
-      expect(items).toBeUndefined();
-
-      promise = loader();
-      promise.then(function(rec) {
-        items = rec;
-      });
-
-      mockBackend.flush();
-
-      expect(items.length).toBe(2);
-    });
-  });
-
   describe('add', function() {
     it('should add items to the cart', function() {
       var item = scope.items[0];
