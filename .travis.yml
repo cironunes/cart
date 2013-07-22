@@ -3,6 +3,10 @@ node_js:
   - '0.10'
   - '0.8'
 before_script:
-  - gem install sass
-  - gem install compass
-  - npm install -g grunt-cli
+  - gem update --system
+  - gem install compass -v 0.13.alpha.4
+  - rubygems-bundler-uninstaller
+  - npm install -g grunt-cli bower
+script:
+  - bower install
+  - grunt build
