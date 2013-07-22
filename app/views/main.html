@@ -6,7 +6,7 @@
       <div class="alert alert-success">
         <strong>{{ item.price | currency }}</strong>
       </div>
-      <button class="btn btn-success">Buy!</button>
+      <button class="btn btn-success" ng-click="addToCart(item)">Buy!</button>
     </div>
   </li>
 </ul>

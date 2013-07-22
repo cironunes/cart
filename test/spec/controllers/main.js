@@ -6,7 +6,10 @@ describe('Controller: MainCtrl', function () {
   beforeEach(module('cartApp', 'itemsMock'));
 
   var MainCtrl,
+    rootScope,
     scope,
+    httpBackend,
+    itemFactory,
     response,
     apiURL;
 
@@ -15,9 +18,13 @@ describe('Controller: MainCtrl', function () {
     response = RESPONSE;
     apiURL = API_URL;
 
+    rootScope = $rootScope;
     scope = $rootScope.$new();
 
     $httpBackend.expectGET(apiURL).respond(response);
+    httpBackend = $httpBackend;
+
+    itemFactory = Item;
 
     MainCtrl = $controller('MainCtrl', {
       $scope: scope,
@@ -54,6 +61,19 @@ describe('Controller: MainCtrl', function () {
       mockBackend.flush();
 
       expect(items.length).toBe(2);
+    });
+  });
+
+  describe('add', function() {
+    it('should add items to the cart', function() {
+      var item = scope.items[0];
+      spyOn(itemFactory, 'update');
+
+      expect(item.quantity).toBe(0);
+
+      scope.addToCart(item);
+      expect(item.quantity).toBe(1);
+      expect(itemFactory.update).toHaveBeenCalled();
     });
   });
 });
