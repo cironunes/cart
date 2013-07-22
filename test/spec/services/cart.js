@@ -6,25 +6,21 @@ describe('Service: cart', function () {
   beforeEach(module('cartApp'));
 
   // instantiate service
-  var cart;
+  var cart,
+    mockItems,
+    cartItems;
   beforeEach(inject(function (_Cart_) {
     cart = _Cart_;
+    mockItems = [{quantity: 1}, {quantity: 2}];
+    cartItems = cart.getItems(mockItems);
   }));
 
   it('should get items into the cart', function () {
-    var items,
-      mockItems = [{quantity: 0}, {quantity: 1}];
-
-    items = cart.getItems(mockItems);
-    expect(items.length).toBe(1);
+    expect(cartItems.items.length).toBe(2);
   });
 
   it('shoud get count of items in the cart', function() {
-    var count,
-      mockItems = [{quantity: 1}, {quantity: 2}];
-
-    count = cart.getCount(mockItems);
-    expect(count).toBe(3);
+    expect(cartItems.count).toBe(3);
   });
 
 });
