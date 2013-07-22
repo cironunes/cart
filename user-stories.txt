@@ -2,9 +2,13 @@
   a) Os produtos devem ser mostrados na ordem de cadastro
 
 - Eu como usuário quero colocar produtos no carrinho
-  a) O valor total da compra deve ser atualizado assim que o produto for inserido no carrinho
 
 - Eu como usuário quero remover produtos do carrinho
-  a) O valor total da compra deve ser atualizado assim que o produto for inserido no carrinho
+
+- Eu como usuário quero visualizar os produtos que estão no carrinho
+
+- Eu como usuário quero saber a quantidade de produtos no carrinho
+
+- Eu como usuário quero saber o valor total do meu carrinho
 
 - Eu como usuário quero finalizar meu pedido
