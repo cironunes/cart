@@ -37,17 +37,4 @@ describe('Controller: MainCtrl', function () {
   it('should have items', function () {
     expect(scope.items.length).toBe(2);
   });
-
-  describe('add', function() {
-    it('should add items to the cart', function() {
-      var item = scope.items[0];
-      spyOn(itemFactory, 'update');
-
-      expect(item.quantity).toBe(0);
-
-      scope.addToCart(item);
-      expect(item.quantity).toBe(1);
-      expect(itemFactory.update).toHaveBeenCalled();
-    });
-  });
 });
