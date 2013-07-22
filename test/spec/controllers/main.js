@@ -8,17 +8,23 @@ describe('Controller: MainCtrl', function () {
   var MainCtrl,
     scope,
     response,
-    apiKey;
+    apiURL;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope, RESPONSE, API_KEY) {
+  beforeEach(inject(function ($controller, $rootScope, $httpBackend, Item, RESPONSE, API_URL) {
     response = RESPONSE;
-    apiKey = API_KEY;
+    apiURL = API_URL;
+
     scope = $rootScope.$new();
+
+    $httpBackend.expectGET(apiURL).respond(response);
+
     MainCtrl = $controller('MainCtrl', {
       $scope: scope,
-      items: response
+      items: Item.query()
     });
+
+    $httpBackend.flush();
   }));
 
   it('should have items', function () {
@@ -36,7 +42,7 @@ describe('Controller: MainCtrl', function () {
     it('should load a list of items', function() {
       var items, promise;
 
-      mockBackend.expectGET(apiKey).respond(response);
+      mockBackend.expectGET(apiURL).respond(response);
 
       expect(items).toBeUndefined();
 

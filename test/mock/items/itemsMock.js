@@ -15,4 +15,4 @@ angular.module('itemsMock', [])
       "quantity": 0
     }
   ])
-  .value('API_KEY', 'https://api.mongolab.com/api/1/databases/frontinbh/collections/items?apiKey=511441a4e4b0bddcedd12959');
+  .value('API_URL', 'https://api.mongolab.com/api/1/databases/frontinbh/collections/items?apiKey=511441a4e4b0bddcedd12959');
