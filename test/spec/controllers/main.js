@@ -2,34 +2,22 @@
 
 describe('Controller: MainCtrl', function () {
 
-  var API_KEY = 'https://api.mongolab.com/api/1/databases/frontinbh/collections/items?apiKey=511441a4e4b0bddcedd12959';
-  var RESPONSE = [
-    {
-      "name": "Mazda",
-      "price": 200000,
-      "image": "/images/mazda.png",
-      "quantity": 0
-    },
-    {
-      "name": "Truck",
-      "price": 100000,
-      "image": "/images/truck.png",
-      "quantity": 0
-    }
-  ];
-
   // load the controller's module
-  beforeEach(module('cartApp'));
+  beforeEach(module('cartApp', 'itemsMock'));
 
   var MainCtrl,
-    scope;
+    scope,
+    response,
+    apiKey;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
+  beforeEach(inject(function ($controller, $rootScope, RESPONSE, API_KEY) {
+    response = RESPONSE;
+    apiKey = API_KEY;
     scope = $rootScope.$new();
     MainCtrl = $controller('MainCtrl', {
       $scope: scope,
-      items: RESPONSE
+      items: response
     });
   }));
 
@@ -48,7 +36,7 @@ describe('Controller: MainCtrl', function () {
     it('should load a list of items', function() {
       var items, promise;
 
-      mockBackend.expectGET(API_KEY).respond(RESPONSE);
+      mockBackend.expectGET(apiKey).respond(response);
 
       expect(items).toBeUndefined();
 
