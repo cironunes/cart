@@ -11,7 +11,7 @@ describe('Service: cart', function () {
     cartItems;
   beforeEach(inject(function (_Cart_) {
     cart = _Cart_;
-    mockItems = [{quantity: 1}, {quantity: 2}];
+    mockItems = [{quantity: 1, price: 10}, {quantity: 2, price: 10}];
     cartItems = cart.getItems(mockItems);
   }));
 
@@ -21,6 +21,10 @@ describe('Service: cart', function () {
 
   it('shoud get count of items in the cart', function() {
     expect(cartItems.count).toBe(3);
+  });
+
+  it('should get the total in the cart', function() {
+    expect(cartItems.total).toBe(30);
   });
 
 });
