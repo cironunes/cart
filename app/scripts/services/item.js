@@ -14,5 +14,7 @@ angular.module('cartApp')
       return ItemFactory.update({id: this._id['$oid']}, angular.extend({}, this, {_id: undefined}));
     };
 
+    ItemFactory.prototype.quantity = 0;
+
     return ItemFactory;
   });

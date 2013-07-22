@@ -24,9 +24,70 @@
       <script src="bower_components/es5-shim/es5-shim.js"></script>
       <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
+    <div ng-controller="CartCtrl">
+        <header>
+            <div class="navbar navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <a class="brand" href="#">cartapp</a>
+                        <form class="navbar-form pull-left">
+                            <input type="search" ng-model="searchText.name" placeholder="looking for...">
+                        </form>
+                        <div class="pull-right">
+                            <div class="btn-group">
+                                <a class="btn dropdown-toggle" href="#" data-toggle="dropdown">
+                                    <i class="icon-shopping-cart"></i> ({{ cart.count }})
+                                    <span class="caret"></span>
+                                </a>
+                                <div id="nav-cart" class="dropdown-menu pull-right">
+                                    <div ng-show="cart.count > 0">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Item</th>
+                                                    <th>Quantity</th>
+                                                    <th>Price</th>
+                                                    <th>Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="item in cart.items">
+                                                    <td>
+                                                        <img ng-src="{{ item.image }}" width="64">
+                                                    </td>
+                                                    <td>
+                                                        {{ item.quantity }}
+                                                        <button class="btn btn-success" ng-click="addToCart(item)">+1</button>
+                                                        <button class="btn btn-danger" ng-click="removeFromCart(item)">-1</button>
+                                                    </td>
+                                                    <td>{{ item.price | currency }}</td>
+                                                    <td>{{ item.quantity * item.price | currency }}</td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="3">Total</td>
+                                                    <td>{{ cart.total | currency }}</td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                        <hr>
+                                        <button class="btn btn-block btn-success">Checkout</button>
+                                    </div>
+                                    <div class="alert alert-danger" ng-hide="cart.count > 0">
+                                        <span>Your cart is empty!</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                  </div>
+                </div>
+            </div>
+        </header>
 
-    <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
+        <!-- Add your site or application content here -->
+        <div class="container" ng-view=""></div>
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
@@ -66,6 +127,13 @@
         <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
         <script src="scripts/services/multiitemloader.js"></script>
         <script src="scripts/services/item.js"></script>
+        <script src="scripts/controllers/cart.js"></script>
+        <script src="scripts/services/cart.js"></script>
         <!-- endbuild -->
+        <script>
+            $('.dropdown-menu').click(function(e) {
+                e.stopPropagation();
+            });
+        </script>
 </body>
 </html>
