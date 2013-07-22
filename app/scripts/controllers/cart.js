@@ -16,4 +16,11 @@ angular.module('cartApp')
       item.quantity -= 1;
       item.$update();
     };
+
+    $scope.checkout = function(items) {
+      items.forEach(function(val, index) {
+        val.quantity = 0;
+        val.$update();
+      });
+    };
   });

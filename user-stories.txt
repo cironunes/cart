@@ -12,3 +12,4 @@
 - Eu como usuário quero saber o valor total do meu carrinho
 
 - Eu como usuário quero finalizar meu pedido
+  a) Quando finalizar o pedido, devo ser redirecionado para uma página com o resumo da compra

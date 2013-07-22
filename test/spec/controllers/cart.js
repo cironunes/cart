@@ -18,7 +18,7 @@ describe('Controller: CartCtrl', function () {
     itemFactory = Item;
   }));
 
-  describe('add/remove', function() {
+  describe('add/remove/checkout', function() {
     var item;
     beforeEach(function() {
       item = new itemFactory({_id: {"$oid": ''}});
@@ -34,13 +34,23 @@ describe('Controller: CartCtrl', function () {
     });
 
     it('should remove items from the cart', function() {
-        expect(item.quantity).toBe(0);
-
         scope.addToCart(item);
         expect(item.quantity).toBe(1);
 
         scope.removeFromCart(item);
         expect(item.quantity).toBe(0);
+    });
+
+    it('should checkout', function() {
+      var items;
+      scope.addToCart(item);
+      scope.addToCart(item);
+      expect(item.quantity).toBe(2);
+      items = [item, item];
+
+      scope.checkout(items);
+      expect(items[0].quantity).toBe(0);
+      expect(items[1].quantity).toBe(0);
     });
   });
 
