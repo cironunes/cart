@@ -32,6 +32,16 @@ describe('Controller: CartCtrl', function () {
       expect(item.quantity).toBe(1);
       expect(itemFactory.update).toHaveBeenCalled();
     });
+
+    it('should remove items from the cart', function() {
+        expect(item.quantity).toBe(0);
+
+        scope.addToCart(item);
+        expect(item.quantity).toBe(1);
+
+        scope.removeFromCart(item);
+        expect(item.quantity).toBe(0);
+    });
   });
 
 });

@@ -6,4 +6,9 @@ angular.module('cartApp')
       item.quantity += 1;
       item.$update();
     };
+
+    $scope.removeFromCart = function(item) {
+      item.quantity -= 1;
+      item.$update();
+    };
   });
