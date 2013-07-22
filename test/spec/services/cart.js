@@ -19,4 +19,12 @@ describe('Service: cart', function () {
     expect(items.length).toBe(1);
   });
 
+  it('shoud get count of items in the cart', function() {
+    var count,
+      mockItems = [{quantity: 1}, {quantity: 2}];
+
+    count = cart.getCount(mockItems);
+    expect(count).toBe(3);
+  });
+
 });
