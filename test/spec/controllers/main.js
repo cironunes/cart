@@ -29,6 +29,6 @@ describe('Controller: MainCtrl', function () {
   it('should update the cart', function() {
     scope.items[0].quantity = 1;
     scope.$apply();
-    expect(rootScope.$emit).toHaveBeenCalledWith('updateCart', scope.items);
+    expect(rootScope.$emit).toHaveBeenCalledWith('updateCart');
   });
 });

@@ -9,4 +9,4 @@ before_script:
   - npm install -g grunt-cli bower
 script:
   - bower install
-  - grunt build
+  - grunt

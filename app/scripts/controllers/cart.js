@@ -3,8 +3,8 @@
 angular.module('cartApp')
   .controller('CartCtrl', function ($rootScope, $scope, Cart) {
     $scope.cart = {};
-    $rootScope.$on('updateCart', function($el, items) {
-      $scope.cart = Cart.getItems(items);
+    $rootScope.$on('updateCart', function() {
+      $scope.cart = Cart.getItems();
     });
 
     $scope.addToCart = function(item) {

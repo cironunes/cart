@@ -12,7 +12,8 @@ describe('Service: cart', function () {
   beforeEach(inject(function (_Cart_) {
     cart = _Cart_;
     mockItems = [{quantity: 1, price: 10}, {quantity: 2, price: 10}];
-    cartItems = cart.getItems(mockItems);
+    cart.setItems(mockItems);
+    cartItems = cart.getItems();
   }));
 
   it('should get items into the cart', function () {
