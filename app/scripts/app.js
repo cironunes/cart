@@ -7,8 +7,8 @@ angular.module('cartApp', ['ngResource'])
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         resolve: {
-          items: function(MultiItemLoader) {
-            return MultiItemLoader();
+          items: function(multiItemLoader) {
+            return multiItemLoader();
           }
         }
       })

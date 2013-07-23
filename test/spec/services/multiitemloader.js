@@ -10,9 +10,9 @@ describe('Service: MultiItemLoader', function () {
     mockBackend,
     apiURL,
     response;
-  beforeEach(inject(function (_$httpBackend_, _MultiItemLoader_, API_URL, RESPONSE) {
+  beforeEach(inject(function (_$httpBackend_, _multiItemLoader_, API_URL, RESPONSE) {
     mockBackend = _$httpBackend_;
-    multiitemloader = _MultiItemLoader_;
+    multiitemloader = _multiItemLoader_;
     apiURL = API_URL;
     response = RESPONSE;
   }));
