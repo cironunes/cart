@@ -13,6 +13,11 @@ describe('Service: item', function () {
     item = _Item_;
   }));
 
+  afterEach(function() {
+    httpBackend.verifyNoOutstandingExpectation();
+    httpBackend.verifyNoOutstandingRequest();
+  });
+
   it('should do something', function () {
     expect(!!item).toBe(true);
   });
@@ -21,6 +26,7 @@ describe('Service: item', function () {
     it('should update', function() {
       httpBackend.expectPUT().respond();
       item.update();
+      httpBackend.flush();
     });
   });
 
