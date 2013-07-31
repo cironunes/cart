@@ -1,5 +1,5 @@
 <ul class="nav">
-  <li ng-repeat="item in items | filter:searchText">
+  <li ng-animate="'animate'" ng-repeat="item in items | filter:searchText">
     <div class="well">
       <img ng-src="{{ item.image }}" width="128" height="128">
       <h3>{{ item.name }}</h3>
