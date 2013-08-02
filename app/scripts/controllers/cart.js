@@ -2,7 +2,11 @@
 
 angular.module('cartApp')
   .controller('CartCtrl', function ($rootScope, $scope, Cart) {
-    $scope.cart = {};
+    $scope.cart = {
+      items: [],
+      count: 0,
+      total: 0
+    };
     $rootScope.$on('updateCart', function() {
       $scope.cart = Cart.getItems();
     });

@@ -18,6 +18,12 @@ describe('Controller: CartCtrl', function () {
     itemFactory = Item;
   }));
 
+  it('should initialize empty', function() {
+    expect(scope.cart.items.length).toBe(0);
+    expect(scope.cart.count).toBe(0);
+    expect(scope.cart.total).toBe(0);
+  });
+
   describe('add/remove/checkout', function() {
     var item;
     beforeEach(function() {

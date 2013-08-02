@@ -7,10 +7,11 @@ describe('Controller: MainCtrl', function () {
 
   var MainCtrl,
     rootScope,
-    scope;
+    scope,
+    cartFactory;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope, $httpBackend, Item, RESPONSE, API_URL) {
+  beforeEach(inject(function ($controller, $rootScope, $httpBackend, Item, Cart, RESPONSE, API_URL) {
     rootScope = $rootScope;
     scope = $rootScope.$new();
     $httpBackend.expectGET(API_URL).respond(RESPONSE);
@@ -19,7 +20,9 @@ describe('Controller: MainCtrl', function () {
       items: Item.query()
     });
     $httpBackend.flush();
+    cartFactory = Cart;
     spyOn(rootScope, '$emit');
+    spyOn(cartFactory, 'setItems');
   }));
 
   it('should have items', function () {
@@ -30,5 +33,6 @@ describe('Controller: MainCtrl', function () {
     scope.items[0].quantity = 1;
     scope.$apply();
     expect(rootScope.$emit).toHaveBeenCalledWith('updateCart');
+    expect(cartFactory.setItems).toHaveBeenCalled();
   });
 });
