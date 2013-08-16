@@ -14,7 +14,7 @@ In general, you can use the **product backlog** requests to guide your tests, th
 ```sh
 git clone git://github.com/cironunes/cart.git
 cd cart
-npm install
+npm install && bower install
 
 grunt server
 ```
