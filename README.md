@@ -12,7 +12,7 @@ In general, you can use the **product backlog** requests to guide your tests, th
 # Installation
 
 ```sh
-git clone git://github.com/cironunes/cart.git
+git clone https://github.com/cironunes/cart.git
 cd cart
 npm install && bower install
 
